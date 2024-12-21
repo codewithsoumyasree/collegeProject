@@ -1,0 +1,474 @@
+
+<html>
+<head>
+    <title>Online voting system</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link  href="css/style.css" rel="stylesheet">
+</head>
+<body>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="assets/logo.png" alt="logo" style="width: 100px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="d-flex ms-auto" role="search">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./routes/login.html">Login/Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Admin Login</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li><a class="dropdown-item" href="#">Blog</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+   <!-- Banner Section -->
+   <div class="banner-container py-5 bg-primary text-white text-center">
+    <h1>Your Voice, Your Vote</h1>
+    <p>Welcome to the <strong>Voting System</strong>, the ultimate platform where you can participate in various online polls and make your voice heard. <br> Whether it's about trending topics, political opinions, or fun quizzes, we bring you the chance to cast your vote on a variety of subjects.</p>
+</div>
+
+
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Why Choose Us?</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <img src="https://media.kasperskydaily.com/wp-content/uploads/sites/92/2020/10/16044143/M187_Digital-voting-header.png" alt="Secure Voting" class="mb-3" style="width: 100px; height: 100px;">
+                    <h4>Secure and Private</h4>
+                    <p>Your vote is fully encrypted and anonymous, ensuring maximum privacy and security.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://impact100.org/wp-content/uploads/2018/05/Smartphone-Vote.jpg" alt="Easy to Use" class="mb-3"  style="width: 100px; height: 100px;">
+                    <h4>Easy to Use</h4>
+                    <p>Our platform is simple to navigate, making it accessible for everyone to cast their vote without hassle.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://media.istockphoto.com/id/1258633187/vector/online-vote.jpg?s=612x612&w=0&k=20&c=7eOLMUx6_EKkXPjMrElvFYkz2x0rdShD8DNAlrff6-E=" alt="Real-time Results" class="mb-3"  style="width: 100px; height: 100px;">
+                    <h4>Real-time Results</h4>
+                    <p>Track live voting results and see how others have voted, in real-time, for full transparency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Industries Using Our eVoting Services Section -->
+ <section class="industries py-5 bg-light" >
+  <div class="container" >
+      <h2 class="text-center mb-4">Industries Using Our eVoting Services</h2>
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card shadow-sm">
+                  <img src="https://image.cnbcfm.com/api/v1/image/101949583-India_executives.1910x1000.jpg" alt="Corporate" class="card-img-top" style="max-width: 414px; height: 300px;">
+                  <div class="card-body">
+                      <h5 class="card-title">Corporate Sector</h5>
+                      <p class="card-text">Many companies use our platform for internal elections, feedback collection, and employee surveys to make informed decisions.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card shadow-sm">
+                  <img src="https://flighttraining.co.nz/wp-content/uploads/2022/11/kids.jpg" alt="Education" class="card-img-top"  style="max-width: 414px; height: 300px;">
+                  <div class="card-body">
+                      <h5 class="card-title">Education</h5>
+                      <p class="card-text">Schools, colleges, and universities use our platform to conduct student elections, surveys, and polls in an efficient way.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card shadow-sm">
+                  <img src="https://www.cnri.org.in/assets/images/slider6-1892x893.jpg" alt="Government" class="card-img-top"  style="max-width: 414px; height: 300px;">
+                  <div class="card-body">
+                      <h5 class="card-title">Government & NGOs</h5>
+                      <p class="card-text">Governments and NGOs use our platform for public consultations, policy feedback, and voting on critical decisions.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- How to Use Section -->
+<section class="how-to-use py-5 bg-light">
+    <div class="container"  >
+        <h2 class="text-center mb-5 font-weight-bold text-primary">How to Use Our Platform</h2>
+        <div class="row" style="padding-left: 100px;">
+            <!-- Step 1 -->
+            <div class="col-md-12 mb-4">
+                <div class="card shadow-sm border-light rounded">
+                    <div class="card-body d-flex align-items-center">
+                        <!-- Circular Image for Step 1 -->
+                        <div class="circle-image-container mr-4">
+                            <img src="assets/1.png" alt="Step 1 Image" class="circle-image">
+                        </div>
+                        <!-- Step 1 Text -->
+                        <div>
+                            <h4 class="card-title font-weight-semibold text-dark">Step 1: Register</h4>
+                            <p class="card-text text-muted">Create your account on our platform by providing basic details. It's quick and easy!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="col-md-12 mb-4">
+                <div class="card shadow-sm border-light rounded">
+                    <div class="card-body d-flex flex-row-reverse align-items-center">
+                        <!-- Circular Image for Step 2 -->
+                        <div class="circle-image-container ml-4">
+                            <img src="assets/2.png" alt="Step 2 Image" class="circle-image">
+                        </div>
+                        <!-- Step 2 Text -->
+                        <div>
+                            <h4 class="card-title font-weight-semibold text-dark">Step 2:  Create a Vote</h4>
+                            <p class="card-text text-muted">Set up your voting event by adding questions and options. You can customize it to your needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="col-md-12 mb-4">
+                <div class="card shadow-sm border-light rounded">
+                    <div class="card-body d-flex align-items-center">
+                        <!-- Circular Image for Step 3 -->
+                        <div class="circle-image-container mr-4">
+                            <img src="assets/3.png" alt="Step 3 Image" class="circle-image">
+                        </div>
+                        <!-- Step 3 Text -->
+                        <div>
+                            <h4 class="card-title font-weight-semibold text-dark">Step 3:Share the Vote</h4>
+                            <p class="card-text text-muted">Share the vote link with your community or team. Invite participants to vote securely.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-left: 100px;">
+            <!-- Step 4 -->
+            <div class="col-md-12 mb-4">
+                <div class="card shadow-sm border-light rounded">
+                    <div class="card-body d-flex flex-row-reverse align-items-center">
+                        <!-- Circular Image for Step 4 -->
+                        <div class="circle-image-container ml-4">
+                            <img src="assets/4.png" alt="Step 4 Image" class="circle-image">
+                        </div>
+                        <!-- Step 4 Text -->
+                        <div>
+                            <h4 class="card-title font-weight-semibold text-dark">Step 4:  Voting</h4>
+                            <p class="card-text text-muted">Participants can vote anonymously and securely using our platform's easy-to-use interface.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="col-md-12 mb-4">
+                <div class="card shadow-sm border-light rounded">
+                    <div class="card-body d-flex align-items-center">
+                        <!-- Circular Image for Step 5 -->
+                        <div class="circle-image-container mr-4">
+                            <img src="assets/5.png" alt="Step 5 Image" class="circle-image">
+                        </div>
+                        <!-- Step 5 Text -->
+                        <div>
+                            <h4 class="card-title font-weight-semibold text-dark">Step 5: Results</h4>
+                            <p class="card-text text-muted">After the voting period ends, view the results in real-time with detailed statistics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="col-md-12 mb-4">
+                <div class="card shadow-sm border-light rounded">
+                    <div class="card-body d-flex flex-row-reverse align-items-center">
+                        <!-- Circular Image for Step 6 -->
+                        <div class="circle-image-container ml-4">
+                            <img src="assets/6.png" alt="Step 6 Image" class="circle-image">
+                        </div>
+                        <!-- Step 6 Text -->
+                        <div>
+                            <h4 class="card-title font-weight-semibold text-dark">Step 6:  Export Data</h4>
+                            <p class="card-text text-muted">Download the results and voting data in multiple formats for your records or analysis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 
+    <div id="bodySection">
+        <form action="api/login.php" method="POST">
+            <h2>Login</h2>
+            <input type="number" name="mobile" placeholder="Enter mobile"><br><br>
+            <input type="password" name="password" placeholder="Enter password"><br><br>
+            <select id="dropbox" name="role">
+                <option value="1">Voter</option>
+                <option value="2">Group</option>
+            </select><br><br>
+            <button id="loginbtn" type="submit">Login</button><br><br>
+            New user? <a href="routes/register.html">Register here</a>
+        </form>
+    </div> -->
+
+
+    
+<!-- About Us Section -->
+<section class="about-us py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">About Us</h2>
+        <div class="row" style="padding-left: 70px ;">
+            <div class="col-md-6">
+                <p>We are a leading provider of secure and easy-to-use online voting platforms. Our mission is to empower individuals and organizations to vote in a transparent and accessible way. Whether you're an organization, a community, or an individual, our platform ensures that your vote counts — safely, securely, and anonymously.</p>
+                <!-- New div for additional images with grid layout -->
+                <div class="row additional-images">
+                    <div class="col-md-4 mb-3 text-center">
+                    
+                        <img src="https://dymk4s89vutua.cloudfront.net/wp-content/plugins/r2v-api/images/icons/secured.png?x20927" alt="100% Secure" class="img-fluid rounded shadow-sm" style="max-width: 60px; margin-top: 100px;">
+                        <h4>100% Secure</h4>
+                    </div>
+                    <div class="col-md-4 mb-3 text-center">
+                    
+                        <img src="https://dymk4s89vutua.cloudfront.net/wp-content/plugins/r2v-api/images/icons/easy-to-use.png?x20927" alt="Easy to Use" class="img-fluid rounded shadow-sm" style="max-width: 60px; margin-top: 100px;">
+                        <h4>Easy to Use</h4>
+                    </div>
+                    <div class="col-md-4 mb-3 text-center">
+                       
+                        <img src="https://dymk4s89vutua.cloudfront.net/wp-content/plugins/r2v-api/images/icons/feature-rich.png?x20927" alt="Feature Rich" class="img-fluid rounded shadow-sm" style="max-width: 60px;  margin-top: 100px;">
+                        <h4>Feature Rich</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="https://eligovoting.com/wp-content/uploads/2024/04/eligo-vote-evoting-ivoting-platform.png" alt="About Us" class="img-fluid rounded shadow-sm" style=" max-width: 500px;">
+            </div>
+        </div>
+    </div>
+</section>
+
+ 
+     <!-- Call to Action Section -->
+     <section class="cta-section py-5 bg-dark text-white text-center">
+        <h2>Ready to Make Your Voice Heard?</h2>
+        <p>Join thousands of others who are casting their votes on important matters. It's quick, secure, and easy.</p>
+        <div id="bodySection" class="py-5">
+            <div class="container">
+                <form action="./api/login.php" method="POST" class="p-4 border rounded shadow-sm mx-auto" style="max-width: 400px;">
+                    <h2 class="text-center mb-4">Login</h2>
+                    <input type="number" name="mobile" placeholder="Enter mobile" class="form-control mb-3" required style="width: 100%;"><br>
+                    <input type="password" name="password" placeholder="Enter password" class="form-control mb-3" required style="width: 100%;"><br>
+                    <select id="dropbox" name="role" class="form-select mb-3" style="width: 100%;">
+                        <option value="1">Voter</option>
+                        <option value="2">Group</option>
+                    </select><br>
+                    <button id="loginbtn" type="submit" class="btn btn-primary w-100">Login</button><br><br>
+                    New user? <a href="routes/register.html">Register here</a>
+                </form>
+            </div>
+        </div>
+    </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">What Our Users Say</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">"The online voting platform is so easy to use, and I love how my vote is secure."</p>
+                        <h5 class="card-title">John Doe</h5>
+                        <p class="card-subtitle text-muted">Voter</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">"I organized a poll for my group using this system, and the results were instantly available. Very reliable!"</p>
+                        <h5 class="card-title">Jane Smith</h5>
+                        <p class="card-subtitle text-muted">Group Admin</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">"An amazing tool for collecting opinions from people all over the world. Highly recommended!"</p>
+                        <h5 class="card-title">Alice Johnson</h5>
+                        <p class="card-subtitle text-muted">Poll Creator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+      <!-- FAQ Section -->
+<section class="faq py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        What is the Online Voting System?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        The Online Voting System allows users to cast their votes securely on various polls and elections via the internet.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Is my vote anonymous?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, all votes are encrypted and stored securely to ensure your anonymity.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        How do I ensure my vote is counted properly?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Our system sends you a confirmation message once your vote has been successfully cast, ensuring that your vote has been recorded.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Can I vote multiple times in the same poll?
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        No, each user can only vote once in each poll to ensure fairness and accuracy.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        Is the Online Voting System secure?
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, the system uses advanced encryption and security protocols to protect your data and ensure the integrity of the voting process.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        Can I vote using my mobile phone?
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, the Online Voting System is fully responsive, allowing you to cast your vote on your mobile phone, tablet, or computer.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+ 
+
+<!-- Footer Section -->
+<footer class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Address Section -->
+            <div class="col-md-4 mb-4">
+                <h5 class="text-uppercase font-weight-bold">Our Address</h5>
+                <p>
+                    123 Main Street, Suite 456<br>
+                    City, State, ZIP Code<br>
+                    Country
+                </p>
+            </div>
+
+            <!-- Contact Us Section -->
+            <div class="col-md-4 mb-4" style="padding-left: 100px ;">
+                <h5 class="text-uppercase font-weight-bold">Contact Us</h5>
+                <p><strong>Email:</strong> info@yourdomain.com</p>
+                <p><strong>Phone:</strong> +1 234 567 890</p>
+                <p><strong>Fax:</strong> +1 234 567 891</p>
+            </div>
+
+            <!-- Social Media Icons Section -->
+            <div class="col-md-4 mb-4" style="padding-left: 200px ;">
+                <h5 class="text-uppercase font-weight-bold">Follow Us</h5>
+                <div class="social-icons">
+                    <div class="icons">
+                        <img src="assets/icons8-instagram-logo-30.png" class="insta"></img>
+                        <img src="assets/icons8-twitterx-30.png" class="twitter"></img>
+                        <img src="assets/icons8-facebook-30.png" class="facebook"></img>
+                        <img src="assets/icons8-youtube-logo-30.png" class="youtube"></img>
+                        <img src="assets/icons8-linkedin-logo-30.png" class="linkedin"></img>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- All Rights Reserved -->
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

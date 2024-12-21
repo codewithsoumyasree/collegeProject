@@ -1,0 +1,181 @@
+  
+  body{
+    overflow-x: hidden;
+  }
+  .banner-container {
+    background-image: url('https://images.indianexpress.com/2022/08/PTI08_26_2022_000103B.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding: 0 20px; 
+  }
+  
+  .banner-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.54);
+    z-index: -1;
+  }
+  
+  .banner-content {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 30px; 
+  }
+  
+  .banner-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .banner-content p {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+/* Circle Image Style */
+.circle-image-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%; 
+}
+
+.circle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* Circle Image Style */
+.circle-image-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%; 
+}
+
+.circle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* Card Layout */
+.how-to-use .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    max-width: 90%; 
+    width: 90%; 
+}
+
+.how-to-use .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.how-to-use .card-body {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.how-to-use .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    padding: 10px;
+}
+
+.how-to-use .card-text {
+    font-size: 1.1rem;
+    color: #666;
+    padding: 10px;
+}
+
+.how-to-use .btn-primary {
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.how-to-use .btn-primary:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.how-to-use .card-body.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.how-to-use .card-body .circle-image-container {
+    margin-right: 20px;
+}
+
+.how-to-use .card-body .card-text {
+    margin-left: 10px;
+}
+
+.how-to-use .card {
+    margin-bottom: 30px; 
+    max-width: 100%;
+}
+
+.how-to-use .card-body {
+    padding: 3rem; 
+    width: 100%;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #343a40; 
+    color: #fff; 
+}
+
+footer a {
+    text-decoration: none; 
+}
+
+footer .social-icons a {
+    font-size: 1.5rem; 
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #007bff; 
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+footer .text-uppercase {
+    text-transform: uppercase; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .social-icons a {
+        font-size: 1.2rem;
+    }
+}

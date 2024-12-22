@@ -4,12 +4,6 @@ if (!isset($_SESSION['userdata'])) {
     header("location: ../");
 }
 
-// // Check if the user is logged in
-// if (!isset($_SESSION['userdata'])) {
-//     header("Location: login.php"); // Redirect to login if the user is not logged in
-//     exit();
-// } 
-
 $userdata = $_SESSION['userdata'];
 
 // Check if the user is approved (status = 1)
@@ -32,23 +26,25 @@ $current_time = date('Y-m-d H:i:s');
 // Determine the voting status
 if ($current_time < $start_date) {
     $voting_status = "Voting has not started yet.";
-    $votebtn_disabled = 'disabled';
+    $votebtn_disabled = 'disabled'; // Disable button if voting hasn't started
 } elseif ($current_time > $end_date) {
     $voting_status = "Voting has ended.";
-    $votebtn_disabled = 'disabled';
+    $votebtn_disabled = 'disabled'; // Disable button if voting has ended
 } else {
     $voting_status = "Voting is currently active.";
-    $votebtn_disabled = '';
+    $votebtn_disabled = ''; // Enable button if voting is active
 }
 
+// Check if the user has already voted
 if ($_SESSION['userdata']['voted'] == 0) {
     $status = '<b style="color:red;"> NOT VOTED</b>';
-    $votebtn_disabled = '';  // Enable vote button if not voted
+    // If user hasn't voted, the button should be enabled
+    $votebtn_disabled = $votebtn_disabled ? 'disabled' : '';  // Keep button disabled based on voting status
 } else {
     $status = '<b style="color:green;"> VOTED</b>';
-    $votebtn_disabled = 'disabled';  // Disable vote button if already voted
+    // If user has voted, disable the button
+    $votebtn_disabled = 'disabled';
 }
-
 ?>
 
 <html lang="en">

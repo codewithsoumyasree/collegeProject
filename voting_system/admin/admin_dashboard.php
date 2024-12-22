@@ -17,7 +17,7 @@ function sanitize($input) {
 if (isset($_GET['approve_candidate']) || isset($_GET['approve_group'])) {
     // Determine whether the action is for a candidate or group
     $id = sanitize($_GET['approve_candidate'] ?? $_GET['approve_group']);
-    $role = isset($_GET['approve_candidate']) ? 1 : 2;  // 1 = Candidate, 2 = Group
+    $role = isset($_GET['approve_candidate']) ? 1 : 2;  
 
     // Query to update the status of the user (approve the candidate or group)
     $query = "UPDATE user SET status = 1 WHERE id = '$id' AND role = '$role'";

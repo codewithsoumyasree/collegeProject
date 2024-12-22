@@ -2,15 +2,15 @@
 
 $connect = mysqli_connect("localhost", "root", "", "voting_system") or die("connection failed!");
 
-if($connect){
+// if($connect){
 
-echo "Connected!";
+// echo "Connected!";
 
-}
+// }
 
-else{
+// else{
 
-echo "Not Connected!";
-}
+// echo "Not Connected!";
+// }
 
 ?>

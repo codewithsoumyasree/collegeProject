@@ -1,0 +1,39 @@
+
+Structure 
+voting_system/
+│
+├── admin/                         # Admin related files
+│   ├── admin_dashboard.php         # Admin Dashboard
+│   ├── admin_login.html            # Admin Login Form (HTML)
+│   ├── admin_login.php             # Admin Login Logic (PHP)
+│
+├── api/                           # API-related files
+│   ├── connect.php                 # Database connection
+│   ├── login.php                   # User login logic (for both admin and users)
+│   ├── register.php                # User registration logic
+│   └── vote.php                    # Vote processing logic
+│
+├── assets/                        # Static assets like images, icons, etc.
+│   ├── images/                     # Store image files here
+│   └── icons/                      # Store icon files here (if any)
+│
+├── css/                            # CSS styles
+│   └── style.css                   # Main CSS file
+│
+├── routes/                         # Routing files for user-facing pages
+│   ├── aboutUs.php                 # About Us page (PHP)
+│   ├── dashboard.php               # User Dashboard (PHP)
+│   ├── login.html                  # Login page for users (HTML)
+│   ├── logout.php                  # Logout logic (PHP)
+│   ├── register.html               # Registration form (HTML)
+│
+├── uploads/                        # Directory for uploaded images
+│   ├── profile_pictures/           # Profile pictures of users (optional)
+│   ├── group_images/               # Group images (optional)
+│   └── other_files/                # Any other uploads (optional)
+│
+└── index.html                      # Home page for the voting system
+└── .htaccess                       # (Optional) For routing and security configuration
+
+
+Voting Limits: a voter can only vote once per candidate or group.

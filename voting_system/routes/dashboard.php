@@ -1,16 +1,56 @@
 <?php
 session_start();
-if(!isset($_SESSION['userdata'])){
+if (!isset($_SESSION['userdata'])) {
     header("location: ../");
 }
-$userdata= $_SESSION['userdata'];
-if($_SESSION['userdata']['status']==0){
-    $status='<b style="color:red;"> NOT VOTED</b>';
+
+// // Check if the user is logged in
+// if (!isset($_SESSION['userdata'])) {
+//     header("Location: login.php"); // Redirect to login if the user is not logged in
+//     exit();
+// } 
+
+$userdata = $_SESSION['userdata'];
+
+// Check if the user is approved (status = 1)
+if ($userdata['status'] == 0) {
+    $_SESSION['error'] = 'Your account is not approved by the admin yet.';
+    header("Location: ../api/login.php"); // Redirect back to login page if not approved
+    exit();
 }
-else{
-    $status='<b style="color:green;"> VOTED</b>';
+ 
+// Check Voting Status
+include("../api/connect.php");  
+$query = "SELECT start_date, end_date FROM voting_settings WHERE id = 1"; 
+$result = mysqli_query($connect, $query);
+$row = mysqli_fetch_assoc($result);
+
+$start_date = $row['start_date'];
+$end_date = $row['end_date'];
+$current_time = date('Y-m-d H:i:s');  
+
+// Determine the voting status
+if ($current_time < $start_date) {
+    $voting_status = "Voting has not started yet.";
+    $votebtn_disabled = 'disabled';
+} elseif ($current_time > $end_date) {
+    $voting_status = "Voting has ended.";
+    $votebtn_disabled = 'disabled';
+} else {
+    $voting_status = "Voting is currently active.";
+    $votebtn_disabled = '';
 }
+
+if ($_SESSION['userdata']['voted'] == 0) {
+    $status = '<b style="color:red;"> NOT VOTED</b>';
+    $votebtn_disabled = '';  // Enable vote button if not voted
+} else {
+    $status = '<b style="color:green;"> VOTED</b>';
+    $votebtn_disabled = 'disabled';  // Disable vote button if already voted
+}
+
 ?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -65,31 +105,25 @@ else{
              object-fit: cover; /* Ensures the image covers the entire circular area */
              object-position: center; 
         }
+        #votebtn:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
 
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="../assets/logo.png" alt="logo" style="width: 100px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <form class="d-flex ms-auto" role="search">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="../index.html">Home</a>
-                        </li>
-                        </li>
-                    </ul>
-                </div>
-            </form>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/logo.png" alt="Voting System Logo" style="width: 100px;">
+        </a>
+        <div class="d-flex">
+        <a href="./logout.php" class="btn btn-outline-danger">Logout</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
 <div class="container">
    <center> <h1 style="padding-top:1rem;">Welcome, <?php echo $_SESSION['userdata']['name']; ?></h1></center>
@@ -97,80 +131,57 @@ else{
     <div id="profileSection" class="card">
         <div class="card-header">
             <h4>Profile details</h4>
+            <p>Voting Status: <?php echo $voting_status; ?></p>
         </div>
+        
         <div class="card-body">
             <div class="row">
                 <div class="col-md-3 text-center">
                     <img src="../uploads/<?php echo $_SESSION['userdata']['photo']; ?>" alt="Profile Photo" id="profileImage">
                 </div>
                 <div class="col-md-9">
-                    <p>Name:<?php echo $_SESSION['userdata']['name']; ?></p>
+                    <p>Name: <?php echo $_SESSION['userdata']['name']; ?></p>
                     <p>Role: <?php echo $_SESSION['userdata']['role'] == 1 ? 'Voter' : 'Group'; ?></p>
                     <p>Mobile: <?php echo $_SESSION['userdata']['mobile']; ?></p>
                     <p>Address: <?php echo $_SESSION['userdata']['address']; ?></p>
-                    <p>Status:<?php echo $status; ?></p>
+                    <p>Status: <?php echo $status; ?></p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Group Section -->
-    <center> <h1 style="padding-top:1rem;"> Avaliable Groups: </h1></center>
-<div id="Group">
-<?php
-// Ensure that groupsdata exists in the session
-if (isset($_SESSION['groupsdata']) && !empty($_SESSION['groupsdata'])) {
+    <center> <h1 style="padding-top:1rem;">Available Groups: </h1></center>
+    <div id="Group">
+    <?php
+    if (isset($_SESSION['groupsdata']) && !empty($_SESSION['groupsdata'])) {
+        foreach ($_SESSION['groupsdata'] as $group) {
+    ?>
+    <div style="display: flex; align-items: center; gap: 20px; padding: 10px;">
+        <img 
+            style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; object-position: center;" 
+            src="../uploads/<?php echo htmlspecialchars($group['photo']); ?>" 
+            alt="Group Image">
 
-    // Loop through the group data stored in the session
-    for ($i = 0; $i < count($_SESSION['groupsdata']); $i++) {
-        $group = $_SESSION['groupsdata'][$i];
-?>
-
-<div style="display: flex; align-items: center; gap: 20px; padding: 10px;">
-    <!-- Display the group image -->
-    <img 
-        style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; object-position: center;" 
-        src="../uploads/<?php echo htmlspecialchars($group['photo']); ?>" 
-        alt="Group Image">
-
-    <div style="flex-grow: 1;">
-        <!-- Display the group name and vote count with proper spacing -->
-        <p style="margin: 0; padding: 5px 0;"><b>Group Name: </b><?php echo htmlspecialchars($group['name']); ?></p>
-        <p style="margin: 0; padding: 5px 0;"><b>Votes: </b><?php echo htmlspecialchars($group['votes']); ?></p>
-    </div>
-
-    <!-- Voting form with proper alignment -->
-    <form action="../api/vote.php" method="POST" style="display: flex; align-items: center;">
-        <input type="hidden" name="gvotes" value="<?php echo htmlspecialchars($group['votes']); ?>">
-        <input type="hidden" name="gid" value="<?php echo htmlspecialchars($group['id']); ?>">
-        <input type="submit" name="votebtn" value="Vote" id="votebtn" style="padding: 5px 10px; margin-left: 10px;">
-    </form>
-</div>
-
-
-<hr>
-
-<?php
-
-}
-
-}
-
-else{
-
-}
-
-?>
-
-</div>
-
-</div>
-
-        <div id="headerSection">
-           <a href="../"> <button id="backbtn">Back</button></a>
-            <a href="logout.php"><button id="logoutbtn">Logout</button></a>
-          
+        <div style="flex-grow: 1;">
+            <p style="margin: 0; padding: 5px 0;"><b>Group Name: </b><?php echo htmlspecialchars($group['name']); ?></p>
+            <p style="margin: 0; padding: 5px 0;"><b>Votes: </b><?php echo htmlspecialchars($group['votes']); ?></p>
         </div>
+
+        <!-- Voting form with button disabled if the user has voted -->
+        <form action="../api/vote.php" method="POST" style="display: flex; align-items: center;">
+            <input type="hidden" name="gvotes" value="<?php echo htmlspecialchars($group['votes']); ?>">
+            <input type="hidden" name="gid" value="<?php echo htmlspecialchars($group['id']); ?>">
+            <input type="submit" name="votebtn" value="Vote" id="votebtn" style="padding: 5px 10px; margin-left: 10px;" <?php echo $votebtn_disabled; ?>>
+        </form>
+    </div>
+    <hr>
+    <?php
+        }
+    }
+    ?>
+    </div>
+</div>
 
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-5">
@@ -187,7 +198,7 @@ else{
             </div>
 
             <!-- Contact Us Section -->
-            <div class="col-md-4 mb-4" style="padding-left: 100px ;">
+            <div class="col-md-4 mb-4" style="padding-left: 100px;">
                 <h5 class="text-uppercase font-weight-bold">Contact Us</h5>
                 <p><strong>Email:</strong> info@yourdomain.com</p>
                 <p><strong>Phone:</strong> +1 234 567 890</p>
@@ -195,15 +206,15 @@ else{
             </div>
 
             <!-- Social Media Icons Section -->
-            <div class="col-md-4 mb-4" style="padding-left: 200px ;">
+            <div class="col-md-4 mb-4" style="padding-left: 200px;">
                 <h5 class="text-uppercase font-weight-bold">Follow Us</h5>
                 <div class="social-icons">
                     <div class="icons">
-                        <img src="../assets/icons8-instagram-logo-30.png" class="insta"></img>
-                        <img src="../assets/icons8-twitterx-30.png" class="twitter"></img>
-                        <img src="../assets/icons8-facebook-30.png" class="facebook"></img>
-                        <img src="../assets/icons8-youtube-logo-30.png" class="youtube"></img>
-                        <img src="../assets/icons8-linkedin-logo-30.png" class="linkedin"></img>
+                        <img src="../assets/icons8-instagram-logo-30.png" class="insta">
+                        <img src="../assets/icons8-twitterx-30.png" class="twitter">
+                        <img src="../assets/icons8-facebook-30.png" class="facebook">
+                        <img src="../assets/icons8-youtube-logo-30.png" class="youtube">
+                        <img src="../assets/icons8-linkedin-logo-30.png" class="linkedin">
                     </div>
                 </div>
             </div>
@@ -216,8 +227,6 @@ else{
         </div>
     </div>
 </footer>
-
-
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

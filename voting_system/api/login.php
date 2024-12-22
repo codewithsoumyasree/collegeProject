@@ -6,7 +6,7 @@ $mobile = $_POST['mobile'];
 $password = $_POST['password'];
 $role = $_POST['role'];
 
-$check = mysqli_query($connect, "SELECT * FROM user WHERE mobile='$mobile' AND password='$password' AND role='$role'");
+$check = mysqli_query($connect, "SELECT * FROM user WHERE mobile='$mobile' AND password='$password' AND role='$role' AND status=1");
 
 if(mysqli_num_rows($check)>0){
     $userdata = mysqli_fetch_array($check);
@@ -25,9 +25,11 @@ if(mysqli_num_rows($check)>0){
 else{
     echo "
     <script>
-        alert('Invalid Credentials or User not found');
+        alert('Your account is not approved by the admin yet.');
         window.location = '../';
     </script>
     ";
 }
+
+
 ?>

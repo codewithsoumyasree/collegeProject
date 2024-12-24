@@ -17,7 +17,7 @@
     z-index: 1;
     overflow: hidden;
     margin-bottom: 20px;
-    padding: 0 20px; 
+    padding: 0px 20px; 
   }
   
   .banner-container::before {
@@ -27,7 +27,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(0, 0, 0, 0.54);
+    background: #0000008a;
     z-index: -1;
   }
   
